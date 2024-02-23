@@ -20,9 +20,9 @@ export async function removeContact(contactId) {
   const index = contacts.findIndex((element) => element.id === contactId);
   if (index === -1) return null;
 
-  const deletedContact = contacts.splice(index, 1);
+  const removeContact = contacts.splice(index, 1);
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
-  return deletedContact[0];
+  return removeContact[0];
 }
 
 export async function addContact(name, email, phone) {
